@@ -270,6 +270,72 @@ p{color:var(--g6)}
 .ex-card h3{margin-bottom:10px;font-size:1.1rem}
 .ex-card p{font-size:.9rem;line-height:1.7}
 
+/* ===== EXAMES DETALHADOS ===== */
+.exam-detail{display:grid;gap:36px;align-items:center;margin-bottom:90px}
+@media(min-width:900px){.exam-detail{grid-template-columns:1.05fr 1fr;gap:60px}}
+.exam-detail.reverse .exam-detail-img,
+.exam-detail.reverse .exam-detail-imgs{order:2}
+.exam-detail-img,.exam-detail-imgs{position:relative}
+.exam-detail-img{border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-lg);background:linear-gradient(135deg,var(--p0),#fff);border:1px solid rgba(124,58,237,.08)}
+.exam-detail-img img{width:100%;height:auto;display:block}
+.exam-detail-imgs{display:grid;gap:16px}
+.exam-detail-imgs img{width:100%;height:auto;border-radius:var(--rl);box-shadow:var(--sh-md);border:1px solid rgba(124,58,237,.08);display:block}
+.exam-tag{display:inline-block;font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:700;color:var(--t6);text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.18);margin-bottom:16px}
+.exam-detail-content h3{font-size:clamp(1.55rem,3vw,2.1rem);margin-bottom:18px;line-height:1.2}
+.exam-detail-content h3 .grad-text{display:inline-block}
+.exam-detail-content p{margin-bottom:14px;line-height:1.75;color:var(--g6)}
+.exam-detail-content p strong{color:var(--g7);font-weight:700}
+.exam-detail-content ul{list-style:none;padding:0;margin:14px 0 18px}
+.exam-detail-content ul li{padding-left:24px;position:relative;margin-bottom:9px;color:var(--g6);font-size:.95rem;line-height:1.6}
+.exam-detail-content ul li::before{content:'';position:absolute;left:2px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--p7);box-shadow:0 0 0 3px rgba(124,58,237,.12)}
+.exam-subhead{font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;color:var(--p7);text-transform:uppercase;letter-spacing:1.5px;margin:24px 0 10px}
+.exam-quick-badge{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:24px;background:rgba(34,197,94,.1);color:#16a34a;font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:700;margin-top:18px;border:1px solid rgba(34,197,94,.2)}
+.exam-quick-badge svg{width:16px;height:16px;flex-shrink:0}
+
+/* Sub-features (cards de características de um exame) */
+.exam-features-grid{display:grid;gap:18px;margin:0 auto 90px;max-width:1100px}
+@media(min-width:640px){.exam-features-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.exam-features-grid{grid-template-columns:repeat(4,1fr)}}
+.exam-feature{background:#fff;border:1px solid rgba(124,58,237,.1);border-radius:var(--r);padding:22px 22px;transition:all .3s var(--ease);position:relative}
+.exam-feature::before{content:'';position:absolute;top:0;left:22px;right:22px;height:3px;background:var(--grad);border-radius:0 0 4px 4px;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.exam-feature:hover{border-color:rgba(124,58,237,.25);transform:translateY(-4px);box-shadow:var(--sh-md)}
+.exam-feature:hover::before{transform:scaleX(1)}
+.exam-feature-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--p0),rgba(6,182,212,.08));display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.exam-feature-icon svg{width:20px;height:20px;color:var(--p7)}
+.exam-feature h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;font-weight:700;color:var(--g7);margin-bottom:8px;line-height:1.3}
+.exam-feature p{font-size:.85rem;color:var(--g5);line-height:1.6;margin:0}
+
+/* Lista de aplicações (Tomografia) */
+.exam-applications{max-width:880px;margin:0 auto 90px;background:linear-gradient(135deg,var(--p0),#fff);border:1px solid rgba(124,58,237,.12);border-radius:var(--rl);padding:32px 36px}
+.exam-applications h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;color:var(--p7);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;text-align:center}
+.exam-applications ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+@media(min-width:640px){.exam-applications ul{grid-template-columns:repeat(2,1fr);gap:10px 32px}}
+.exam-applications li{padding-left:28px;position:relative;color:var(--g6);font-size:.92rem;line-height:1.5}
+.exam-applications li::before{content:'';position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--grad);background-size:cover}
+.exam-applications li::after{content:'';position:absolute;left:5px;top:11px;width:6px;height:3px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+
+/* Variante "no image" - Documentação */
+.exam-detail.no-img{display:block;max-width:980px;margin-left:auto;margin-right:auto;text-align:center;margin-bottom:50px}
+.exam-detail.no-img .exam-tag{margin-bottom:16px}
+.exam-detail.no-img h3{margin-bottom:20px}
+.exam-detail.no-img>p,.exam-detail.no-img>.exam-detail-content>p{max-width:700px;margin-left:auto;margin-right:auto}
+
+/* Cards dos tipos de documentação */
+.doc-types{display:grid;gap:24px;margin-top:40px;text-align:left}
+@media(min-width:768px){.doc-types{grid-template-columns:repeat(3,1fr)}}
+.doc-type{background:#fff;border:1px solid rgba(124,58,237,.12);border-radius:var(--rl);padding:30px 26px;position:relative;overflow:hidden;transition:all .35s var(--ease)}
+.doc-type::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+.doc-type:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:rgba(124,58,237,.22)}
+.doc-type-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--p0),rgba(6,182,212,.08));display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.doc-type-icon svg{width:22px;height:22px;color:var(--p7)}
+.doc-type h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:700;color:var(--p9);margin-bottom:14px;line-height:1.3;text-transform:none;letter-spacing:0}
+.doc-type p{font-size:.9rem;color:var(--g6);line-height:1.65;margin-bottom:14px}
+.doc-type ul{list-style:none;padding:0;margin:0}
+.doc-type ul li{padding-left:20px;position:relative;font-size:.86rem;margin-bottom:8px;color:var(--g6);line-height:1.5}
+.doc-type ul li::before{content:'';position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--t5)}
+.doc-type .eco-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:20px;background:rgba(34,197,94,.1);color:#16a34a;font-size:.7rem;font-weight:700;margin-top:6px;letter-spacing:.3px;border:1px solid rgba(34,197,94,.2)}
+.doc-type .eco-badge svg{width:12px;height:12px}
+
 /* ===== DIFERENCIAIS ===== */
 .diferenciais{background:linear-gradient(180deg,#fff,var(--p0))}
 .dif-grid{display:grid;gap:20px}
@@ -600,36 +666,166 @@ p{color:var(--g6)}
             <h2 class="section-title shimmer">Exames de imagem com <span class="grad-text">precis&atilde;o digital</span></h2>
             <p class="section-sub">Tecnologia avan&ccedil;ada para exames com qualidade de imagem superior, agilidade e conforto.</p>
         </div>
-        <div class="exames-grid">
-            <div class="ex-card anim anim-d1">
-                <div class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 12h10"/><path d="M12 7v10"/></svg></div>
-                <h3>Radiografia Digital</h3>
-                <p>Imagens digitais de alta resolu&ccedil;&atilde;o com processamento instant&acirc;neo, menor dose de radia&ccedil;&atilde;o e precis&atilde;o no diagn&oacute;stico.</p>
+        <!-- 1. RADIOGRAFIA PANORÂMICA -->
+        <div class="exam-detail anim">
+            <div class="exam-detail-img">
+                <img src="radiografia-panoramica.jfif" alt="Radiografia Panor&acirc;mica" loading="lazy">
             </div>
-            <div class="ex-card anim anim-d2">
-                <div class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-                <h3>Radiografia Panor&acirc;mica</h3>
-                <p>Vis&atilde;o ampla e completa de todas as estruturas bucais em uma &uacute;nica imagem para avalia&ccedil;&atilde;o geral.</p>
+            <div class="exam-detail-content">
+                <span class="exam-tag">Exame extraoral</span>
+                <h3>Radiografia <span class="grad-text">Panor&acirc;mica</span></h3>
+                <p>A radiografia panor&acirc;mica &eacute; um exame de imagem que proporciona uma vis&atilde;o ampla de toda a cavidade bucal em uma &uacute;nica tomada, permitindo a avalia&ccedil;&atilde;o simult&acirc;nea das arcadas superior (maxila) e inferior (mand&iacute;bula), al&eacute;m das estruturas adjacentes.</p>
+                <p>Por meio deste exame, &eacute; poss&iacute;vel identificar altera&ccedil;&otilde;es como les&otilde;es cariosas extensas, reabsor&ccedil;&otilde;es &oacute;sseas e radiculares, granulomas, cistos, tumores, dentes inclusos/impactados e fraturas decorrentes de traumas.</p>
+                <p>Trata-se de um exame <strong>extraoral, r&aacute;pido, confort&aacute;vel e de baixa exposi&ccedil;&atilde;o &agrave; radia&ccedil;&atilde;o</strong>, frequentemente solicitado como exame inicial para planejamento de tratamentos, acompanhamento da sa&uacute;de bucal e como exame pr&eacute;-operat&oacute;rio.</p>
+                <div class="exam-quick-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    N&atilde;o &eacute; necess&aacute;rio agendamento pr&eacute;vio
+                </div>
             </div>
-            <div class="ex-card anim anim-d3">
-                <div class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/></svg></div>
-                <h3>Radiografia Periapical</h3>
-                <p>Registro detalhado de dentes espec&iacute;ficos e tecidos ao redor, ideal para an&aacute;lise de canal e les&otilde;es.</p>
+        </div>
+
+        <!-- 2. PERIAPICAL BOCA TODA -->
+        <div class="exam-detail reverse anim">
+            <div class="exam-detail-img">
+                <img src="PERIAPICAL.PNG" alt="Levantamento Periapical Boca Toda" loading="lazy">
             </div>
-            <div class="ex-card anim anim-d4">
-                <div class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-                <h3>Tomografia Computadorizada</h3>
-                <p>Imagens 3D de alta precis&atilde;o para implantes, cirurgias, les&otilde;es e an&aacute;lise &oacute;ssea detalhada.</p>
+            <div class="exam-detail-content">
+                <span class="exam-tag">Exame intraoral</span>
+                <h3>Periapical <span class="grad-text">Boca Toda</span></h3>
+                <p>Tamb&eacute;m conhecida como <strong>levantamento periapical completo</strong>, &eacute; um conjunto de radiografias intraorais que permite a avalia&ccedil;&atilde;o detalhada de todos os dentes e de suas estruturas de suporte.</p>
+                <p>O exame &eacute; composto por <strong>14 radiografias periapicais</strong>:</p>
+                <ul>
+                    <li>7 da arcada superior (maxila)</li>
+                    <li>7 da arcada inferior (mand&iacute;bula)</li>
+                </ul>
+                <p>As imagens s&atilde;o obtidas por meio de pequenos sensores digitais posicionados no interior da cavidade bucal, proporcionando alta defini&ccedil;&atilde;o e riqueza de detalhes das estruturas dent&aacute;rias e do tecido &oacute;sseo adjacente.</p>
+                <p>Para pacientes com <strong>denti&ccedil;&atilde;o dec&iacute;dua</strong> (dentes de leite), o exame &eacute; realizado com 10 radiografias periapicais (5 superiores + 5 inferiores).</p>
+                <h4 class="exam-subhead">Indica&ccedil;&otilde;es</h4>
+                <ul>
+                    <li>Les&otilde;es cariosas</li>
+                    <li>Reabsor&ccedil;&otilde;es &oacute;sseas interdentais</li>
+                    <li>Altera&ccedil;&otilde;es periapicais (granulomas e cistos)</li>
+                    <li>Avalia&ccedil;&atilde;o do periodonto e estruturas de suporte</li>
+                </ul>
             </div>
-            <div class="ex-card anim anim-d5">
-                <div class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 007.92 12.446A9 9 0 1112 3z"/><path d="M17 4a2 2 0 002 2 2 2 0 00-2 2 2 2 0 00-2-2 2 2 0 002-2"/></svg></div>
-                <h3>Escaneamento Intraoral 3D</h3>
-                <p>Molde digital de alta precis&atilde;o sem desconforto. Substitui o molde tradicional com mais agilidade.</p>
+        </div>
+
+        <!-- 3. TOMOGRAFIA CONE BEAM -->
+        <div class="exam-detail anim">
+            <div class="exam-detail-imgs">
+                <img src="TOMOGRAFIA.jfif" alt="Equipamento Orthophos SL 3D Sirona" loading="lazy">
+                <img src="TOMOGRAFIA-RESULTADOS.jfif" alt="Resultados de Tomografia 3D" loading="lazy">
             </div>
-            <div class="ex-card anim anim-d6">
-                <div class="ex-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-                <h3>Documenta&ccedil;&atilde;o Ortod&ocirc;ntica</h3>
-                <p>Conjunto completo de exames para planejamento ortod&ocirc;ntico, incluindo an&aacute;lises cefalom&eacute;tricas.</p>
+            <div class="exam-detail-content">
+                <span class="exam-tag">Tecnologia Dentsply Sirona</span>
+                <h3>Tomografia Cone Beam<br><span class="grad-text">Orthophos SL 3D</span></h3>
+                <p>A Cl&iacute;nica Radix oferece exames de Tomografia Computadorizada Cone Beam (CBCT) realizados com o moderno <strong>Orthophos SL 3D</strong>, equipamento de &uacute;ltima gera&ccedil;&atilde;o da Dentsply Sirona, reconhecido mundialmente por sua excel&ecirc;ncia em diagn&oacute;stico por imagem.</p>
+                <p>Permite a obten&ccedil;&atilde;o de imagens tridimensionais de <strong>alta resolu&ccedil;&atilde;o</strong> das estruturas maxilofaciais, com visualiza&ccedil;&atilde;o detalhada de dentes, ossos, articula&ccedil;&otilde;es e vias anat&ocirc;micas com extrema precis&atilde;o.</p>
+                <p>As imagens 3D permitem mensura&ccedil;&otilde;es exatas e an&aacute;lise em m&uacute;ltiplos planos, proporcionando maior previsibilidade nos tratamentos.</p>
+            </div>
+        </div>
+
+        <!-- Sub-features da tomografia -->
+        <div class="exam-features-grid anim">
+            <div class="exam-feature">
+                <div class="exam-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h4>Alta defini&ccedil;&atilde;o, baixa radia&ccedil;&atilde;o</h4>
+                <p>Tecnologia avan&ccedil;ada com protocolos de baixa dose, garantindo seguran&ccedil;a sem comprometer a acur&aacute;cia.</p>
+            </div>
+            <div class="exam-feature">
+                <div class="exam-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <h4>Tecnologia Sharp Layer</h4>
+                <p>Tecnologia exclusiva que melhora a nitidez automaticamente, ajustando o foco nas camadas anat&ocirc;micas de interesse.</p>
+            </div>
+            <div class="exam-feature">
+                <div class="exam-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <h4>Integra&ccedil;&atilde;o digital completa</h4>
+                <p>Arquivos compat&iacute;veis com softwares de planejamento e escaneamentos intraorais para fluxos digitais.</p>
+            </div>
+            <div class="exam-feature">
+                <div class="exam-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <h4>Conforto e rapidez</h4>
+                <p>Exame n&atilde;o invasivo, com aquisi&ccedil;&atilde;o de imagem em poucos segundos.</p>
+            </div>
+        </div>
+
+        <!-- Aplicações clínicas da tomografia -->
+        <div class="exam-applications anim">
+            <h4>Aplica&ccedil;&otilde;es cl&iacute;nicas</h4>
+            <ul>
+                <li>Planejamento de implantes dent&aacute;rios</li>
+                <li>Avalia&ccedil;&atilde;o de dentes inclusos</li>
+                <li>An&aacute;lise de les&otilde;es &oacute;sseas, cistos e tumores</li>
+                <li>Estudo das articula&ccedil;&otilde;es temporomandibulares (ATM)</li>
+                <li>Planejamento cir&uacute;rgico e ortod&ocirc;ntico</li>
+                <li>Endodontia avan&ccedil;ada (canais e fraturas)</li>
+            </ul>
+        </div>
+
+        <!-- 4. ESCANEAMENTO INTRAORAL -->
+        <div class="exam-detail reverse anim">
+            <div class="exam-detail-img">
+                <img src="intraoral.jfif" alt="Escaneamento Intraoral Digital" loading="lazy">
+            </div>
+            <div class="exam-detail-content">
+                <span class="exam-tag">Tecnologia 3D digital</span>
+                <h3>Escaneamento <span class="grad-text">Intraoral</span></h3>
+                <p>A Cl&iacute;nica Radix oferece o Escaneamento Intraoral digital, uma tecnologia avan&ccedil;ada que proporciona <strong>alta precis&atilde;o, rapidez e excelente visualiza&ccedil;&atilde;o</strong> das estruturas dent&aacute;rias.</p>
+                <p>O exame &eacute; realizado por meio de um scanner intraoral que captura, em tempo real, imagens detalhadas das arcadas dent&aacute;rias, gerando arquivos digitais em formato <strong>STL</strong>, amplamente utilizados na odontologia digital.</p>
+                <h4 class="exam-subhead">M&aacute;ximo conforto para o paciente</h4>
+                <p>Substitui as moldagens convencionais, eliminando desconfortos como n&aacute;useas e sensa&ccedil;&atilde;o de sufocamento.</p>
+                <h4 class="exam-subhead">Simula&ccedil;&atilde;o de resultados</h4>
+                <p>Permite a visualiza&ccedil;&atilde;o pr&eacute;via dos resultados, facilitando a apresenta&ccedil;&atilde;o do tratamento ao paciente e aumentando a seguran&ccedil;a na tomada de decis&atilde;o.</p>
+                <h4 class="exam-subhead">Conectividade e arquivos abertos</h4>
+                <p>Os arquivos STL podem ser enviados diretamente para laborat&oacute;rios de escolha do profissional, otimizando o fluxo para alinhadores ortod&ocirc;nticos, pr&oacute;teses, guias cir&uacute;rgicas e modelos impressos. S&atilde;o compat&iacute;veis com sistemas abertos e podem ser integrados a exames de tomografia Cone Beam para planejamentos cir&uacute;rgicos avan&ccedil;ados.</p>
+            </div>
+        </div>
+
+        <!-- 5. DOCUMENTAÇÃO ORTODÔNTICA -->
+        <div class="exam-detail no-img anim">
+            <div class="exam-detail-content">
+                <span class="exam-tag">Documenta&ccedil;&atilde;o completa</span>
+                <h3>Documenta&ccedil;&atilde;o <span class="grad-text">Ortod&ocirc;ntica</span> e Ortop&eacute;dica</h3>
+                <p>A documenta&ccedil;&atilde;o ortod&ocirc;ntica &eacute; um conjunto completo de exames que permite ao Cirurgi&atilde;o-Dentista avaliar o crescimento &oacute;sseo, o posicionamento dent&aacute;rio e as rela&ccedil;&otilde;es faciais do paciente, possibilitando um <strong>planejamento preciso e individualizado</strong> do tratamento.</p>
+            </div>
+
+            <div class="doc-types">
+                <div class="doc-type">
+                    <div class="doc-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <h4>Documenta&ccedil;&atilde;o Ortod&ocirc;ntica e/ou Ortop&eacute;dica</h4>
+                    <p>Composi&ccedil;&atilde;o:</p>
+                    <ul>
+                        <li>Radiografia Panor&acirc;mica com laudo</li>
+                        <li>Telerradiografia lateral de cr&acirc;nio</li>
+                        <li>Modelos de estudo das arcadas (escaneamento intraoral 100% digital)</li>
+                        <li>Fotografias intra e extraorais</li>
+                        <li>Tra&ccedil;ados cefalom&eacute;tricos</li>
+                    </ul>
+                </div>
+
+                <div class="doc-type">
+                    <div class="doc-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                    <h4>Documenta&ccedil;&atilde;o Digital 100% Sustent&aacute;vel</h4>
+                    <p>A Cl&iacute;nica Radix trabalha com documenta&ccedil;&atilde;o totalmente digital, eliminando o uso de materiais f&iacute;sicos e proporcionando maior precis&atilde;o, agilidade no envio e armazenamento seguro das informa&ccedil;&otilde;es.</p>
+                    <p>Todos os exames s&atilde;o disponibilizados em formato digital, facilitando o acesso e o planejamento.</p>
+                    <span class="eco-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
+                        100% sustent&aacute;vel
+                    </span>
+                </div>
+
+                <div class="doc-type">
+                    <div class="doc-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 007.92 12.446A9 9 0 1112 3z"/></svg></div>
+                    <h4>Documenta&ccedil;&atilde;o para Alinhadores Invis&iacute;veis</h4>
+                    <p>Conjunto de exames espec&iacute;ficos que permite o <strong>planejamento virtual</strong> do tratamento ortod&ocirc;ntico com alinhadores.</p>
+                    <ul>
+                        <li>Escaneamento intraoral com software de manipula&ccedil;&atilde;o digital</li>
+                        <li>Radiografias</li>
+                        <li>Fotografias intra e extraorais</li>
+                        <li>An&aacute;lises cefalom&eacute;tricas</li>
+                    </ul>
+                    <p style="margin-top:14px;font-size:.86rem">Possibilita a simula&ccedil;&atilde;o dos movimentos dent&aacute;rios e maior previsibilidade dos resultados.</p>
+                </div>
             </div>
         </div>
     </div>
