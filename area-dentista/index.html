@@ -412,6 +412,59 @@ p{color:var(--g6)}
 @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* ===== ÁREA DO DENTISTA ===== */
+
+/* Hero curto */
+.ad-hero{padding:140px 0 40px;background:linear-gradient(160deg,#FAF5FF 0%,#fff 60%,rgba(6,182,212,.03) 100%);position:relative;overflow:hidden}
+@media(min-width:768px){.ad-hero{padding:170px 0 50px}}
+.ad-hero-inner{text-align:center;max-width:680px;margin:0 auto}
+.ad-hero h1{margin:18px 0 18px;font-size:clamp(2rem,5vw,3.2rem)}
+.ad-hero h1 em{font-style:normal;position:relative;display:inline-block}
+.ad-hero h1 em::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:8px;background:linear-gradient(90deg,var(--t4),var(--p4));opacity:.25;border-radius:4px;z-index:-1}
+.ad-hero-sub{font-size:1.05rem;color:var(--g5);max-width:540px;margin:0 auto;line-height:1.75}
+
+/* Login section + card */
+.ad-login-section{padding:30px 0 110px}
+@media(min-width:768px){.ad-login-section{padding:40px 0 140px}}
+.ad-card{background:#fff;border-radius:var(--rl);box-shadow:var(--sh-lg);padding:40px 28px;max-width:440px;margin:0 auto;border:1px solid rgba(124,58,237,.06);position:relative}
+@media(min-width:480px){.ad-card{padding:48px 40px}}
+.ad-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:4px;background:var(--grad);border-radius:0 0 6px 6px}
+.ad-card-logo{height:56px;width:auto;margin:0 auto 24px;display:block}
+.ad-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:700;color:#1F2937;text-align:center;margin-bottom:6px}
+.ad-card-sub{text-align:center;font-size:.92rem;color:var(--g5);margin-bottom:28px}
+
+/* Form */
+.ad-form{display:flex;flex-direction:column;gap:18px}
+.ad-field{display:flex;flex-direction:column;gap:6px}
+.ad-field label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;color:var(--g7);text-transform:uppercase;letter-spacing:.5px}
+.ad-field input{width:100%;padding:14px 16px;font-size:1rem;font-family:'Inter',system-ui,sans-serif;color:var(--g7);background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:var(--r);transition:all .25s var(--ease);-webkit-appearance:none;appearance:none}
+.ad-field input:hover{border-color:#D1D5DB;background:#fff}
+.ad-field input:focus{outline:none;border-color:var(--p7);background:#fff;box-shadow:0 0 0 4px rgba(124,58,237,.12)}
+.ad-field input::placeholder{color:var(--g4)}
+
+/* Submit (estende .btn .btn-primary) */
+.ad-submit{width:100%;justify-content:center;margin-top:8px;padding:16px 28px}
+.ad-submit svg{width:18px;height:18px}
+
+/* Aviso */
+.ad-notice{display:flex;gap:10px;align-items:flex-start;margin-top:18px;padding:14px 16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.12);border-radius:var(--r);font-size:.85rem;color:var(--g6);line-height:1.55}
+.ad-notice svg{width:18px;height:18px;flex-shrink:0;color:var(--p7);margin-top:1px}
+
+/* Links auxiliares */
+.ad-links{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin-top:22px;font-size:.88rem}
+.ad-links a{color:var(--p7);font-weight:600;transition:color .25s}
+.ad-links a:hover{color:var(--p9);text-decoration:underline}
+.ad-sep{color:var(--g4)}
+
+/* Mobile fine-tune */
+@media(max-width:479px){
+    .ad-card{padding:36px 24px}
+    .ad-card-logo{height:48px}
+    .ad-card-title{font-size:1.25rem}
+    .ad-links{flex-direction:column;gap:10px}
+    .ad-sep{display:none}
+}
     </style>
 </head>
 <body>
