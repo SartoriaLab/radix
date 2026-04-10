@@ -5,8 +5,8 @@
 
 /* ===== RESET ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:#374151;background:#fff;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:#374151;background:#fff;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%;position:relative}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
@@ -612,8 +612,10 @@ p{color:var(--g6)}
 
 /* ===== SCROLL ANIMATIONS ===== */
 .anim{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.anim-left{transform:translateX(-40px)}
-.anim-right{transform:translateX(40px)}
+@media(min-width:768px){
+    .anim-left{transform:translateX(-40px)}
+    .anim-right{transform:translateX(40px)}
+}
 .anim-scale{transform:scale(.92)}
 .anim.show{opacity:1;transform:translate(0) scale(1)}
 .anim-d1{transition-delay:.1s}.anim-d2{transition-delay:.2s}.anim-d3{transition-delay:.3s}.anim-d4{transition-delay:.4s}.anim-d5{transition-delay:.5s}.anim-d6{transition-delay:.6s}
