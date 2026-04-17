@@ -627,6 +627,27 @@ p{color:var(--g6)}
 .shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);animation:shimmerPass 5s ease-in-out infinite}
 @keyframes shimmerPass{0%,100%{left:-100%}50%{left:150%}}
 
+/* ===== CONV&Ecirc;NIOS ===== */
+.conv{background:linear-gradient(180deg,#fff 0%,var(--p0) 100%)}
+.conv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto}
+.conv-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px 20px;background:#fff;border:1.5px solid rgba(124,58,237,.12);border-radius:20px;box-shadow:0 4px 20px rgba(124,58,237,.06);transition:all .35s var(--ease);overflow:hidden}
+.conv-card::before{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .35s var(--ease);z-index:0}
+.conv-card>*{position:relative;z-index:1}
+.conv-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(124,58,237,.22);border-color:transparent}
+.conv-card:hover::before{opacity:1}
+.conv-card:hover .conv-name{color:#fff}
+.conv-card:hover .conv-badge{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.35)}
+.conv-badge{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.08);border:1.5px solid rgba(124,58,237,.2);color:var(--p7);transition:all .35s var(--ease)}
+.conv-badge svg{width:22px;height:22px}
+.conv-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.2rem;font-weight:700;color:var(--p9);letter-spacing:-.2px;transition:color .35s var(--ease)}
+.conv-note{text-align:center;margin-top:32px;font-size:.95rem;color:var(--p8)}
+.conv-note a{color:var(--p7);font-weight:700;text-decoration:none}
+.conv-note a:hover{text-decoration:underline}
+@media(max-width:640px){
+    .conv-grid{grid-template-columns:1fr;gap:14px;max-width:420px}
+    .conv-card{flex-direction:row;justify-content:flex-start;padding:20px 24px;gap:18px}
+}
+
 /* ===== REDUCED MOTION ===== */
 @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
