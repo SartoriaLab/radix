@@ -458,11 +458,13 @@
         const btnPrev = document.getElementById('btn-preview');
         const fNome = document.getElementById('f-nome');
         const fDr = document.getElementById('f-dr');
+        const fTel = document.getElementById('f-tel');
+        const fNasc = document.getElementById('f-nasc');
         const fb = document.getElementById('pd-feedback');
         function validar() {
-            btnEnv.disabled = !(fNome.value.trim() && fDr.value.trim());
+            btnEnv.disabled = !(fNome.value.trim() && fDr.value.trim() && fTel.value.trim() && fNasc.value.trim());
         }
-        [fNome, fDr].forEach(el => el.addEventListener('input', validar));
+        [fNome, fDr, fTel, fNasc].forEach(el => el.addEventListener('input', validar));
         validar();
 
         function showFeedback(msg, ok) {
