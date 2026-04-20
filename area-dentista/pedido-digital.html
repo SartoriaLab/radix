@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Pedido Digital de Exames | Área do Dentista — Radix</title>
+    <meta name="description" content="Preencha a solicitação digital de exames e envie o PDF direto pelo WhatsApp da Radix Radiologia Odontológica.">
+    <meta name="author" content="Radix Radiologia Odontológica">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://radixradiologia.com.br/area-dentista/pedido-digital.html">
+
+    <meta property="og:title" content="Pedido Digital de Exames | Radix">
+    <meta property="og:description" content="Solicitação digital de exames odontológicos — envio direto pelo WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://radixradiologia.com.br/area-dentista/pedido-digital.html">
+    <meta property="og:site_name" content="Radix Radiologia Odontológica">
+    <meta property="og:image" content="https://radixradiologia.com.br/assets/img/logo.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="48x48" href="../assets/img/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#7C3AED">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Radix">
+    <meta name="application-name" content="Radix Radiologia">
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/site.css">
+
+    <!-- jsPDF para geração client-side do PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+</head>
+<body>
+
+<a href="#pd-form" class="skip-link">Ir para o formulário</a>
+
+<!-- HEADER -->
+<header class="header" id="header">
+    <div class="container header-inner">
+        <a href="../index.html"><img src="../assets/img/logo.jpg" alt="Radix Radiologia Odontológica" class="header-logo"></a>
+        <nav class="nav">
+            <a href="../index.html#inicio">Início</a>
+            <a href="../index.html#sobre">Sobre</a>
+            <a href="../index.html#exames">Exames</a>
+            <a href="../index.html#diferenciais">Diferenciais</a>
+            <a href="../index.html#tecnologia">Tecnologia</a>
+            <a href="../index.html#contato">Contato</a>
+        </nav>
+        <a href="https://wa.me/551632523233?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20exame." class="btn btn-primary h-cta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Agendar
+        </a>
+        <a href="index.html" class="h-dentista active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Área do Dentista
+        </a>
+        <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mob-menu">
+    <a href="../index.html#inicio">Início</a>
+    <a href="../index.html#sobre">Sobre</a>
+    <a href="../index.html#exames">Exames</a>
+    <a href="../index.html#diferenciais">Diferenciais</a>
+    <a href="../index.html#tecnologia">Tecnologia</a>
+    <a href="../index.html#contato">Contato</a>
+    <a href="index.html" class="nav-cta active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Área do Dentista
+    </a>
+    <a href="https://wa.me/551632523233?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20exame." class="btn btn-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar pelo WhatsApp
+    </a>
+</div>
+
+<main class="pd-page">
+<div class="container">
+
+    <div class="pd-intro">
+        <span class="section-label">Área do Dentista</span>
+        <h1>Pedido <em class="grad-text">Digital</em> de Exames</h1>
+        <p>Preencha a solicitação, marque os exames e envie direto pelo WhatsApp. O formulário vira um <strong>PDF estruturado</strong> com os dados do paciente e todos os itens marcados.</p>
+    </div>
+
+    <form id="pd-form" autocomplete="off" novalidate>
+
+        <!-- 1. DADOS DO PACIENTE -->
+        <section class="pd-section" id="sec-paciente">
+            <div class="pd-section-head">
+                <div class="pd-section-num">1</div>
+                <h2>Dados do paciente e solicitante</h2>
+            </div>
+
+            <div class="pd-grid pd-grid-2">
+                <div class="pd-field">
+                    <label for="f-nome">Nome do paciente <span class="pd-req">*</span></label>
+                    <input id="f-nome" name="nome" type="text" required autocomplete="off" maxlength="120">
+                </div>
+                <div class="pd-field">
+                    <label for="f-tel">Telefone do paciente</label>
+                    <input id="f-tel" name="telefone" type="tel" autocomplete="off" maxlength="30" placeholder="(16) 99999-9999">
+                </div>
+                <div class="pd-field">
+                    <label for="f-nasc">Data de nascimento</label>
+                    <input id="f-nasc" name="nascimento" type="date">
+                </div>
+                <div class="pd-field">
+                    <label for="f-agend">Exame agendado para</label>
+                    <input id="f-agend" name="agendamento" type="text" placeholder="Ex: 25/04 às 14h" maxlength="80">
+                </div>
+                <div class="pd-field">
+                    <label for="f-dr">Dr.(a) solicitante <span class="pd-req">*</span></label>
+                    <input id="f-dr" name="dentista" type="text" required maxlength="120">
+                </div>
+                <div class="pd-field">
+                    <label for="f-cro">CRO (opcional)</label>
+                    <input id="f-cro" name="cro" type="text" maxlength="30">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SOLICITAÇÃO DE EXAMES -->
+        <section class="pd-section" id="sec-exames">
+            <div class="pd-section-head">
+                <div class="pd-section-num">2</div>
+                <h2>Solicitação de exames</h2>
+            </div>
+
+            <h3>Formato de entrega</h3>
+            <div class="pd-radio-row" role="radiogroup" aria-label="Formato de entrega">
+                <label class="pd-radio"><input type="radio" name="entrega" value="Online" checked> Online</label>
+                <label class="pd-radio"><input type="radio" name="entrega" value="Impresso"> Impresso</label>
+            </div>
+
+            <h3>Exames radiográficos extra bucais</h3>
+            <div class="pd-checks pd-checks-2">
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Radiografia panorâmica convencional"><span class="pd-check-text">Radiografia panorâmica convencional</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Em oclusão"><span class="pd-check-text">Em oclusão</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Panorâmica com traçado anatômico e mensuração" data-extra="areas"><span class="pd-check-text">Panorâmica com traçado anatômico e mensuração<span class="pd-check-sub">Informe a(s) área(s) desejada(s) abaixo</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Planigrafia lateral da ATM (boca aberta e fechada)"><span class="pd-check-text">Planigrafia lateral da ATM (boca aberta e fechada)</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Telerradiografia lateral"><span class="pd-check-text">Telerradiografia lateral</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Telerradiografia frontal"><span class="pd-check-text">Telerradiografia frontal</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Radiografia para seios da face"><span class="pd-check-text">Radiografia para seios da face</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="extra" value="Radiografia carpal"><span class="pd-check-text">Radiografia carpal</span></label>
+            </div>
+            <div class="pd-field" id="areas-wrap" style="margin-top:12px;display:none">
+                <label for="f-areas">Áreas para mensuração (panorâmica com traçado)</label>
+                <input id="f-areas" name="areas" type="text" maxlength="200" placeholder="Ex: região 36 e 46">
+            </div>
+
+            <h3>Exames radiográficos intra bucais</h3>
+            <div class="pd-checks pd-checks-2">
+                <label class="pd-check"><input type="checkbox" data-group="intra" value="Arcos dentários — boca toda"><span class="pd-check-text">Arcos dentários — boca toda</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="intra" value="Periapicais dos dentes assinalados"><span class="pd-check-text">Periapicais dos dentes assinalados</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="intra" value="Interproximais dos dentes assinalados"><span class="pd-check-text">Interproximais dos dentes assinalados</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="intra" value="Técnica de Clarck" data-extra="clarck"><span class="pd-check-text">Técnica de Clarck<span class="pd-check-sub">Informe a área desejada abaixo</span></span></label>
+            </div>
+            <div class="pd-field" id="clarck-wrap" style="margin-top:12px;display:none">
+                <label for="f-clarck">Área desejada (Técnica de Clarck)</label>
+                <input id="f-clarck" name="clarck" type="text" maxlength="200">
+            </div>
+
+            <h3>Odontograma — clique nos dentes a assinalar</h3>
+            <div class="pd-odonto-wrap" data-odonto-wrap="intra">
+                <p class="pd-odonto-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a3 3 0 016 0v5M7 11h10l1 9H6l1-9z"/><path d="M12 15v2"/></svg>
+                    Toque nos dentes para marcar ou use os <strong>atalhos</strong> abaixo
+                </p>
+                <div class="pd-odonto-tools" role="group" aria-label="Seleção rápida de dentes">
+                    <button type="button" class="pd-odonto-preset" data-preset="sup" data-odonto="intra">Arcada superior</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="inf" data-odonto="intra">Arcada inferior</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="perm" data-odonto="intra">Permanentes</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="dec" data-odonto="intra">Decíduos</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="all" data-odonto="intra">Todos</button>
+                </div>
+                <div class="pd-odonto-scroll">
+                    <div class="pd-odonto-head">
+                        <span>Lado direito</span>
+                        <span class="pd-odonto-mid">↑ Sup.<br>↓ Inf.</span>
+                        <span>Lado esquerdo</span>
+                    </div>
+                    <svg class="pd-odonto" id="odonto-intra" viewBox="0 0 640 250" aria-label="Odontograma intra bucal"></svg>
+                </div>
+                <div class="pd-odonto-foot">
+                    <div class="pd-odonto-legend">Selecionados: <strong id="intra-count">0</strong></div>
+                    <button type="button" class="pd-odonto-clear" data-odonto="intra" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+                        Limpar
+                    </button>
+                </div>
+                <div class="pd-odonto-chips" id="intra-chips" aria-live="polite"></div>
+            </div>
+
+            <h3>Outros serviços</h3>
+            <div class="pd-checks pd-checks-3">
+                <label class="pd-check"><input type="checkbox" data-group="outros" value="Fotos intra bucais"><span class="pd-check-text">Fotos intra bucais</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="outros" value="Fotos extra bucais"><span class="pd-check-text">Fotos extra bucais</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="outros" value="Fotos intra e extra bucais"><span class="pd-check-text">Fotos intra e extra bucais</span></label>
+            </div>
+        </section>
+
+        <!-- 3. DOCUMENTAÇÕES ORTODÔNTICAS -->
+        <section class="pd-section" id="sec-docs">
+            <div class="pd-section-head">
+                <div class="pd-section-num">3</div>
+                <h2>Documentações ortodônticas</h2>
+            </div>
+
+            <div class="pd-checks">
+                <label class="pd-check"><input type="checkbox" data-group="docs" value="Documentação ortodôntica simples on line (panorâmica, telerradiografia, traçados cefalométricos, 5 fotos, sem modelos)"><span class="pd-check-text">Documentação ortodôntica <strong>simples</strong> on line<span class="pd-check-sub">Panorâmica, telerradiografia, traçados cefalométricos, 5 fotos, sem modelos</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="docs" value="Documentação ortodôntica simples + escaneamento digital sem impressão (arquivo STL)"><span class="pd-check-text">Simples + escaneamento digital <strong>sem impressão</strong> (arquivo STL)</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="docs" value="Documentação ortodôntica simples + escaneamento digital + impressão do modelo"><span class="pd-check-text">Simples + escaneamento digital + <strong>impressão do modelo</strong></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="docs" value="Documentação ortodôntica completa (panorâmica, telerradiografia com traçado, análise de modelo, carpal com análises, 7 fotos, escaneamento digital, modelo impresso)"><span class="pd-check-text">Documentação ortodôntica <strong>completa</strong><span class="pd-check-sub">Panorâmica, telerradiografia com traçado, análise de modelo, carpal com análises, 7 fotos, escaneamento digital, modelo impresso</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="docs" value="Documentação ortodôntica completa com escaneamento on line"><span class="pd-check-text">Completa com escaneamento on line</span></label>
+            </div>
+
+            <h3>Traçados cefalométricos</h3>
+            <div class="pd-checks pd-checks-3">
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Bimler"><span class="pd-check-text">Bimler</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Roth Jarabak"><span class="pd-check-text">Roth Jarabak</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Mac Namara"><span class="pd-check-text">Mac Namara</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Ricketts"><span class="pd-check-text">Ricketts</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Steinler"><span class="pd-check-text">Steinler</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Unesp"><span class="pd-check-text">Unesp</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Adenóides"><span class="pd-check-text">Adenóides</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Usp/Unicamp"><span class="pd-check-text">Usp/Unicamp</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Downs"><span class="pd-check-text">Downs</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Profis"><span class="pd-check-text">Profis</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Usp"><span class="pd-check-text">Usp</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="BBO"><span class="pd-check-text">BBO</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Trevisi"><span class="pd-check-text">Trevisi</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Petrovic"><span class="pd-check-text">Petrovic</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="cefalo" value="Valieri"><span class="pd-check-text">Valieri</span></label>
+            </div>
+        </section>
+
+        <!-- 4. ESCANEAMENTO -->
+        <section class="pd-section" id="sec-escan">
+            <div class="pd-section-head">
+                <div class="pd-section-num">4</div>
+                <h2>Escaneamento</h2>
+            </div>
+
+            <h3>Escaneamento intra oral para alinhadores</h3>
+            <div class="pd-checks pd-checks-2">
+                <label class="pd-check"><input type="checkbox" data-group="escan" value="Invisalign"><span class="pd-check-text">Invisalign</span></label>
+                <label class="pd-check has-inline"><input type="checkbox" data-group="escan" value="Outro alinhador" data-extra="alinhador"><span class="pd-check-text">Outro alinhador<span class="pd-check-sub">Informe qual abaixo</span></span></label>
+            </div>
+            <div class="pd-field" id="alinhador-wrap" style="margin-top:12px;display:none">
+                <label for="f-alinhador">Qual alinhador?</label>
+                <input id="f-alinhador" name="alinhador" type="text" maxlength="120">
+            </div>
+            <p style="font-size:.82rem;color:var(--g5);margin-top:8px"><em>Os escaneamentos são compatíveis com todos os alinhadores.</em></p>
+
+            <h3>Outras finalidades</h3>
+            <div class="pd-checks pd-checks-2">
+                <label class="pd-check"><input type="checkbox" data-group="escan" value="Escaneamento para prótese"><span class="pd-check-text">Para prótese</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="escan" value="Escaneamento para guia cirúrgico"><span class="pd-check-text">Para guia cirúrgico</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="escan" value="Escaneamento para placa miorelaxante"><span class="pd-check-text">Para placa miorelaxante</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="escan" value="Escaneamento para modelo digital (STL)"><span class="pd-check-text">Para modelo digital (STL)</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="escan" value="Escaneamento com modelo impresso"><span class="pd-check-text">Com modelo impresso</span></label>
+            </div>
+        </section>
+
+        <!-- 5. TOMOGRAFIA CONE BEAM -->
+        <section class="pd-section" id="sec-tomo">
+            <div class="pd-section-head">
+                <div class="pd-section-num">5</div>
+                <h2>Tomografia Computadorizada Cone Beam</h2>
+            </div>
+
+            <h3>Formato de entrega</h3>
+            <div class="pd-radio-row" role="radiogroup" aria-label="Formato da tomografia">
+                <label class="pd-radio"><input type="radio" name="tomo_entrega" value="Online" checked> Online</label>
+                <label class="pd-radio"><input type="radio" name="tomo_entrega" value="Impresso"> Impresso</label>
+            </div>
+
+            <h3>Região</h3>
+            <div class="pd-checks pd-checks-2">
+                <label class="pd-check"><input type="checkbox" data-group="tomo_regiao" value="Maxila total"><span class="pd-check-text">Maxila total</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_regiao" value="Mandíbula total"><span class="pd-check-text">Mandíbula total</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_regiao" value="Maxila e Mandíbula"><span class="pd-check-text">Maxila e Mandíbula</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_regiao" value="Seios da face"><span class="pd-check-text">Seios da face</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_regiao" value="ATM — boca aberta e fechada"><span class="pd-check-text">ATM — boca aberta e fechada</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_regiao" value="Assinalar dentes"><span class="pd-check-text">Assinalar dentes<span class="pd-check-sub">Use o odontograma abaixo</span></span></label>
+            </div>
+
+            <div class="pd-odonto-wrap" data-odonto-wrap="tomo">
+                <p class="pd-odonto-hint">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a3 3 0 016 0v5M7 11h10l1 9H6l1-9z"/><path d="M12 15v2"/></svg>
+                    Toque nos dentes para marcar ou use os <strong>atalhos</strong> abaixo
+                </p>
+                <div class="pd-odonto-tools" role="group" aria-label="Seleção rápida de dentes">
+                    <button type="button" class="pd-odonto-preset" data-preset="sup" data-odonto="tomo">Arcada superior</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="inf" data-odonto="tomo">Arcada inferior</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="perm" data-odonto="tomo">Permanentes</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="dec" data-odonto="tomo">Decíduos</button>
+                    <button type="button" class="pd-odonto-preset" data-preset="all" data-odonto="tomo">Todos</button>
+                </div>
+                <div class="pd-odonto-scroll">
+                    <div class="pd-odonto-head">
+                        <span>Lado direito</span>
+                        <span class="pd-odonto-mid">↑ Sup.<br>↓ Inf.</span>
+                        <span>Lado esquerdo</span>
+                    </div>
+                    <svg class="pd-odonto" id="odonto-tomo" viewBox="0 0 640 250" aria-label="Odontograma tomografia"></svg>
+                </div>
+                <div class="pd-odonto-foot">
+                    <div class="pd-odonto-legend">Selecionados: <strong id="tomo-count">0</strong></div>
+                    <button type="button" class="pd-odonto-clear" data-odonto="tomo" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+                        Limpar
+                    </button>
+                </div>
+                <div class="pd-odonto-chips" id="tomo-chips" aria-live="polite"></div>
+            </div>
+
+            <h3>Finalidade do exame</h3>
+            <div class="pd-checks pd-checks-2">
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Implantes — medidas do tecido ósseo / avaliação de implantes"><span class="pd-check-text"><strong>Implantes</strong><span class="pd-check-sub">Medidas do tecido ósseo em áreas desdentadas e/ou avaliação de implantes existentes</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Dentes inclusos — avaliação da posição"><span class="pd-check-text"><strong>Dentes inclusos</strong><span class="pd-check-sub">Avaliação da posição de dentes inclusos</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Endodontia — FOV 5x5, anatomia radicular, odontometria, fraturas e patologias"><span class="pd-check-text"><strong>Endodontia</strong><span class="pd-check-sub">FOV pequeno 5x5 — anatomia radicular, odontometria, pesquisa de fraturas e patologias</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Patologia — pesquisa de lesões"><span class="pd-check-text"><strong>Patologia</strong><span class="pd-check-sub">Pesquisa de lesões</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Periodontia — avaliação das tábuas ósseas"><span class="pd-check-text"><strong>Periodontia</strong><span class="pd-check-sub">Avaliação das tábuas ósseas</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="3º molares — posição e relação com estruturas adjacentes"><span class="pd-check-text"><strong>3º molares</strong><span class="pd-check-sub">Posição e relação com estruturas adjacentes</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Protocolo Marpe — avaliação do palato para instalação de aparelho"><span class="pd-check-text"><strong>Protocolo Marpe</strong><span class="pd-check-sub">Avaliação do palato para instalação de aparelho</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Invisalign — maxila e mandíbula em oclusão (clincheck)"><span class="pd-check-text"><strong>Invisalign</strong><span class="pd-check-sub">Maxila e mandíbula em oclusão (clincheck)</span></span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_fim" value="Maxila com arco zigomático — instalação de implantes"><span class="pd-check-text"><strong>Arco zigomático</strong><span class="pd-check-sub">Maxila com arco zigomático para instalação de implantes</span></span></label>
+            </div>
+
+            <h3>História clínica</h3>
+            <div class="pd-field">
+                <label for="f-historia">Observações clínicas relevantes</label>
+                <textarea id="f-historia" name="historia" maxlength="800" placeholder="Descreva brevemente o caso, queixa principal e informações úteis para o exame."></textarea>
+            </div>
+
+            <h3>Documentações combinadas</h3>
+            <div class="pd-checks">
+                <label class="pd-check"><input type="checkbox" data-group="tomo_doc" value="Tomografia de 1 arcada + escaneamento intra oral + jogo de fotos"><span class="pd-check-text">Tomografia de <strong>1 arcada</strong> + escaneamento intra oral + jogo de fotos</span></label>
+                <label class="pd-check"><input type="checkbox" data-group="tomo_doc" value="Tomografia de 2 arcadas + escaneamento intra oral + jogo de fotos"><span class="pd-check-text">Tomografia de <strong>2 arcadas</strong> + escaneamento intra oral + jogo de fotos</span></label>
+            </div>
+        </section>
+
+        <!-- AÇÕES -->
+        <section class="pd-section" id="sec-envio">
+            <div class="pd-section-head">
+                <div class="pd-section-num">6</div>
+                <h2>Gerar e enviar</h2>
+            </div>
+            <p style="font-size:.92rem;color:var(--g6);line-height:1.65">Ao clicar em <strong>Gerar PDF e enviar</strong>, o arquivo é baixado no seu dispositivo e o WhatsApp da Rádix abre automaticamente com a mensagem pronta. Basta anexar o PDF e enviar.</p>
+
+            <div class="pd-actions">
+                <div class="pd-actions-info">
+                    Campos obrigatórios: <strong>Nome</strong> e <strong>Dr.(a)</strong>
+                </div>
+                <div class="pd-actions-btns">
+                    <button type="button" id="btn-preview" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Pré-visualizar PDF
+                    </button>
+                    <button type="button" id="btn-enviar" class="btn btn-primary" disabled>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                        Gerar PDF e enviar
+                    </button>
+                </div>
+            </div>
+
+            <div id="pd-feedback" class="pd-feedback" role="status" aria-live="polite"></div>
+        </section>
+
+    </form>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="ft-inner">
+            <div class="ft-brand">
+                <img src="../assets/img/logo.jpg" alt="Radix Radiologia Odontológica" class="ft-logo">
+                <p>Radiologia odontológica com tecnologia digital de alta precisão em Taquaritinga e região. Exames que fazem diferença no diagnóstico.</p>
+            </div>
+            <div>
+                <h4 class="ft-title">Links</h4>
+                <div class="ft-links">
+                    <a href="../index.html#inicio">Início</a><a href="../index.html#sobre">Sobre</a><a href="../index.html#exames">Exames</a><a href="../index.html#diferenciais">Diferenciais</a><a href="../index.html#tecnologia">Tecnologia</a><a href="../index.html#contato">Contato</a><a href="index.html">Área do Dentista</a><a href="../politica-privacidade.html">Política de Privacidade</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="ft-title">Contato</h4>
+                <div class="ft-links">
+                    <a href="tel:+551632523233">(16) 3252-3233</a>
+                    <span style="color:rgba(255,255,255,.45);font-size:.9rem">Praça Dr. José Furiatti, 184<br>Centro &mdash; Taquaritinga/SP</span>
+                    <span style="color:rgba(255,255,255,.45);font-size:.9rem">Seg a Sex: 08h&ndash;11h30 | 13h30&ndash;17h30</span>
+                </div>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <p>&copy; 2026 Radix Radiologia Odontológica. Todos os direitos reservados.</p>
+            <p class="footer-dev"><a href="https://julianoanselmo.github.io/portifolio/" target="_blank" rel="noopener">Desenvolvido por Juliano Anselmo</a></p>
+            <div class="ft-social">
+                <a href="https://www.instagram.com/radixtaqua/" target="_blank" rel="noopener" aria-label="Instagram da Radix"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                <a href="https://www.facebook.com/Radixtaquaritinga/" target="_blank" rel="noopener" aria-label="Facebook da Radix"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+                <a href="https://share.google/LmcCicm81DKJE3XwU" target="_blank" rel="noopener" aria-label="Radix no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M21.17 8H12V12.5"/><path d="M3.95 6.06L8 10"/><path d="M10.88 21.94L13 16"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/551632523233?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20exame." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- COOKIE BANNER LGPD -->
+<div class="ck-banner" id="ck-banner" role="dialog" aria-labelledby="ck-title" aria-describedby="ck-desc">
+    <div class="ck-banner-head">
+        <div class="ck-banner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.54 15H17a2 2 0 00-2 2v4.54"/><path d="M7 3.34V5a3 3 0 003 3"/><path d="M11 21.95V18a2 2 0 00-2-2H2.05"/><path d="M21.54 15a8 8 0 11-1.5-9.32"/><circle cx="12" cy="12" r="1"/></svg>
+        </div>
+        <h4 id="ck-title">Cookies e privacidade</h4>
+    </div>
+    <p id="ck-desc">Usamos cookies essenciais para o funcionamento do site e cookies analíticos opcionais para melhorar sua experiência. Veja nossa <a href="../politica-privacidade.html">Política de Privacidade</a>.</p>
+    <div class="ck-actions">
+        <button class="ck-btn ck-btn-reject" id="ck-reject" type="button">Rejeitar opcionais</button>
+        <button class="ck-btn ck-btn-accept" id="ck-accept" type="button">Aceitar todos</button>
+    </div>
+</div>
+
+<!-- Scripts compartilhados -->
+<script src="../assets/site.js" defer></script>
+<!-- Script do pedido digital -->
+<script src="../assets/pedido-digital.js" defer></script>
+
+</body>
+</html>

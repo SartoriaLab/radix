@@ -97,59 +97,102 @@
         <div class="da-hero-inner">
             <span class="section-label">Acesso Restrito</span>
             <h1>Área do <em class="grad-text">Dentista</em></h1>
-            <p class="da-hero-sub">Acesse os resultados dos exames dos seus pacientes diretamente pela nossa plataforma online.</p>
+            <p class="da-hero-sub">Escolha abaixo: faça login para <strong>consultar exames online</strong> ou abra um <strong>pedido digital</strong> de exames direto pelo WhatsApp — sem precisar de cadastro.</p>
         </div>
     </div>
 </section>
 
-<!-- ===== CARD DE LOGIN ===== -->
+<!-- ===== CARDS: LOGIN + PEDIDO DIGITAL ===== -->
 <section class="da-login-section" id="login">
     <div class="container">
-        <div class="da-card">
-            <img src="../assets/img/logo.jpg" alt="Radix Radiologia Odontológica" class="da-card-logo">
-            <h2 class="da-card-title">Acesso do Profissional</h2>
-            <p class="da-card-sub">Entre com seus dados para visualizar os exames.</p>
+        <div class="da-login-grid">
 
-            <form class="da-form"
-                  action="https://radix049574.easydocweb.com/resultados/login_php/"
-                  method="post"
-                  target="_self">
-                <div class="da-field">
-                    <label for="nome_usuario">Login</label>
-                    <input id="nome_usuario"
-                           name="nome_usuario"
-                           type="text"
-                           required
-                           autocomplete="username"
-                           autocapitalize="none"
-                           spellcheck="false">
+            <!-- CARD 1 — Acessar Exames (Login) -->
+            <div class="da-card da-card--login">
+                <div class="da-card-tag">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    Acessar Exames
                 </div>
+                <h2 class="da-card-title">Resultados Online</h2>
+                <p class="da-card-sub">Entre com login e senha para <strong>visualizar os exames dos seus pacientes</strong> na plataforma EasyDoc.</p>
 
-                <div class="da-field">
-                    <label for="senha">Senha</label>
-                    <input id="senha"
-                           name="senha"
-                           type="password"
-                           required
-                           autocomplete="current-password">
+                <form class="da-form"
+                      action="https://radix049574.easydocweb.com/resultados/login_php/"
+                      method="post"
+                      target="_self">
+                    <div class="da-field">
+                        <label for="nome_usuario">Login</label>
+                        <input id="nome_usuario"
+                               name="nome_usuario"
+                               type="text"
+                               required
+                               autocomplete="username"
+                               autocapitalize="none"
+                               spellcheck="false">
+                    </div>
+
+                    <div class="da-field">
+                        <label for="senha">Senha</label>
+                        <input id="senha"
+                               name="senha"
+                               type="password"
+                               required
+                               autocomplete="current-password">
+                    </div>
+
+                    <button type="submit" name="Submit" value="Entrar" class="btn btn-primary da-submit">
+                        Entrar
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+
+                    <p class="da-notice">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        Você será direcionado à plataforma de exames da EASY DOC.
+                    </p>
+
+                    <div class="da-links">
+                        <a href="https://radix049574.easydocweb.com/resultados/recuperar_senha/" rel="noopener">Esqueci minha senha</a>
+                        <span class="da-sep">•</span>
+                        <a href="../index.html">Voltar para o site</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CARD 2 — Pedido Digital (sem login) -->
+            <div class="da-card da-card--pedido">
+                <div class="da-card-tag da-card-tag--t">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                    Solicitar Exames
                 </div>
+                <h2 class="da-card-title">Pedido Digital</h2>
+                <p class="da-card-sub">Preencha a <strong>solicitação de exames online</strong> e envie o PDF estruturado direto pelo WhatsApp da Rádix. <strong>Não precisa de login.</strong></p>
 
-                <button type="submit" name="Submit" value="Entrar" class="btn btn-primary da-submit">
-                    Entrar
+                <ul class="da-feat-list">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Formulário completo com odontograma interativo
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        PDF gerado automaticamente com a sua solicitação
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Envio direto pelo WhatsApp oficial
+                    </li>
+                </ul>
+
+                <a href="pedido-digital.html" class="btn btn-primary da-submit">
+                    Iniciar pedido
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </button>
+                </a>
 
-                <p class="da-notice">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    Após entrar, você será direcionado à plataforma de exames online da EASY DOC.
+                <p class="da-notice da-notice--wa">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                    Ao finalizar, o PDF baixa e o WhatsApp abre com a solicitação pronta para envio.
                 </p>
+            </div>
 
-                <div class="da-links">
-                    <a href="https://radix049574.easydocweb.com/resultados/recuperar_senha/" rel="noopener">Esqueci minha senha</a>
-                    <span class="da-sep">•</span>
-                    <a href="../index.html">Voltar para o site</a>
-                </div>
-            </form>
         </div>
     </div>
 </section>
