@@ -123,12 +123,12 @@ Substitua todo o bloco `<head>...</head>` (linhas 3 a 6 do skeleton) por:
     <meta property="og:locale" content="pt_BR">
     <meta property="og:url" content="https://www.radixradiologia.com.br/area-dentista/">
     <meta property="og:site_name" content="Radix Radiologia Odontológica">
-    <meta property="og:image" content="https://www.radixradiologia.com.br/Logo.png">
+    <meta property="og:image" content="https://www.radixradiologia.com.br/Logo.webp">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/png" href="../Logo.png">
-    <link rel="apple-touch-icon" href="../Logo.png">
+    <link rel="icon" type="image/webp" href="../Logo.webp">
+    <link rel="apple-touch-icon" href="../Logo.webp">
 
     <!-- PWA -->
     <link rel="manifest" href="../manifest.json">
@@ -161,7 +161,7 @@ Expected: linha mostrando `<meta name="robots" content="noindex, nofollow">`.
 
 Run:
 ```bash
-grep -n "../Logo.png" area-dentista/index.html
+grep -n "../Logo.webp" area-dentista/index.html
 ```
 Expected: pelo menos uma linha encontrada.
 
@@ -256,7 +256,7 @@ Substitua o body placeholder por:
 <!-- HEADER -->
 <header class="header" id="header">
     <div class="container header-inner">
-        <a href="../"><img src="../Logo.png" alt="Radix Radiologia Odontológica" class="header-logo"></a>
+        <a href="../"><img src="../Logo.webp" alt="Radix Radiologia Odontológica" class="header-logo"></a>
         <nav class="nav">
             <a href="../#inicio">Início</a>
             <a href="../#sobre">Sobre</a>
@@ -407,7 +407,7 @@ Por:
 <section class="ad-login-section" id="login">
     <div class="container">
         <div class="ad-card">
-            <img src="../Logo.png" alt="Radix Radiologia Odontológica" class="ad-card-logo">
+            <img src="../Logo.webp" alt="Radix Radiologia Odontológica" class="ad-card-logo">
             <h2 class="ad-card-title">Acesso do Profissional</h2>
             <p class="ad-card-sub">Entre com seus dados para visualizar os exames.</p>
 
@@ -598,7 +598,7 @@ Localize `</main>` em `area-dentista/index.html` e substitua a linha `</main>` (
     <div class="container">
         <div class="ft-inner">
             <div class="ft-brand">
-                <img src="../Logo.png" alt="Radix Radiologia Odontológica" class="ft-logo">
+                <img src="../Logo.webp" alt="Radix Radiologia Odontológica" class="ft-logo">
                 <p>Radiologia odontológica com tecnologia digital de alta precisão em Taquaritinga e região. Exames que fazem diferença no diagnóstico.</p>
             </div>
             <div>

@@ -231,7 +231,7 @@
     let logoDataUrl = null;
     function loadLogo() {
         if (logoDataUrl) return Promise.resolve(logoDataUrl);
-        return fetch('../assets/img/logo.jpg')
+        return fetch('../assets/img/logo.webp')
             .then(r => r.blob())
             .then(b => new Promise((res, rej) => {
                 const fr = new FileReader();

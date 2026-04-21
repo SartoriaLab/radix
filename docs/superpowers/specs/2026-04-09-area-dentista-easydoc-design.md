@@ -54,7 +54,7 @@ Página HTML estática autônoma, hospedada em `radixradiologia.com.br/area-dent
 **Card de login — conteúdo:**
 
 ```
-[Logo Radix — versão pequena, mesmo arquivo Logo.png usado no header, altura ~48px]
+[Logo Radix — versão pequena, mesmo arquivo Logo.webp usado no header, altura ~48px]
 
 Acesso do Profissional
 

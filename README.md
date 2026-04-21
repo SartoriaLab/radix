@@ -39,14 +39,14 @@ Site **100% estático** (HTML + CSS + JavaScript puro), sem build step. Ideal pa
 │   ├── site.js                         # JS compartilhado (header, mob menu, cookies, GoatCounter)
 │   └── img/                            # Imagens otimizadas
 │       ├── favicon.svg
-│       ├── logo.jpg
-│       ├── local.jpg                   # Foto da fachada
-│       ├── panoramica.jpg              # Exemplo de panorâmica
-│       ├── radiografia-panoramica.jpg  # Imagem da seção de panorâmica
-│       ├── periapical.jpg              # Levantamento periapical
-│       ├── tomografia.jpg              # Equipamento Orthophos SL 3D
-│       ├── tomografia-resultados.jpg   # Resultado 3D da tomografia
-│       └── intraoral.jpg               # Escaneamento intraoral
+│       ├── logo.webp
+│       ├── local.webp                   # Foto da fachada
+│       ├── panoramica.webp              # Exemplo de panorâmica
+│       ├── radiografia-panoramica.webp  # Imagem da seção de panorâmica
+│       ├── periapical.webp              # Levantamento periapical
+│       ├── tomografia.webp              # Equipamento Orthophos SL 3D
+│       ├── tomografia-resultados.webp   # Resultado 3D da tomografia
+│       └── intraoral.webp               # Escaneamento intraoral
 │
 ├── area-dentista/
 │   └── index.html                      # Login dos dentistas (integra com EasyDoc)

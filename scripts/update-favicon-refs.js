@@ -20,14 +20,14 @@ for (const [f, prefix] of files) {
   let s = fs.readFileSync(full, 'utf8');
   const re = new RegExp(
     '[ \\t]*<link rel="icon" type="image/svg\\+xml" href="' + esc(prefix) + 'favicon\\.svg">\\r?\\n' +
-      '[ \\t]*<link rel="icon" type="image/jpeg" href="' + esc(prefix) + 'logo\\.jpg">\\r?\\n' +
-      '[ \\t]*<link rel="apple-touch-icon" href="' + esc(prefix) + 'logo\\.jpg">'
+      '[ \\t]*<link rel="icon" type="image/webp" href="' + esc(prefix) + 'logo\\.webp">\\r?\\n' +
+      '[ \\t]*<link rel="apple-touch-icon" href="' + esc(prefix) + 'logo\\.webp">'
   );
   const newBlock =
-    '    <link rel="icon" type="image/png" sizes="48x48" href="' + prefix + 'favicon-48.png">\n' +
-    '    <link rel="icon" type="image/png" sizes="96x96" href="' + prefix + 'favicon-96.png">\n' +
-    '    <link rel="icon" type="image/png" sizes="192x192" href="' + prefix + 'favicon-192.png">\n' +
-    '    <link rel="apple-touch-icon" sizes="180x180" href="' + prefix + 'apple-touch-icon.png">';
+    '    <link rel="icon" type="image/webp" sizes="48x48" href="' + prefix + 'favicon-48.webp">\n' +
+    '    <link rel="icon" type="image/webp" sizes="96x96" href="' + prefix + 'favicon-96.webp">\n' +
+    '    <link rel="icon" type="image/webp" sizes="192x192" href="' + prefix + 'favicon-192.webp">\n' +
+    '    <link rel="apple-touch-icon" sizes="180x180" href="' + prefix + 'apple-touch-icon.webp">';
   if (!re.test(s)) {
     console.log('NO MATCH:', f);
     continue;

@@ -13,25 +13,25 @@
   "categories": ["health", "medical"],
   "icons": [
     {
-      "src": "assets/img/logo.jpg",
+      "src": "assets/img/logo.webp",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "assets/img/logo.jpg",
+      "src": "assets/img/logo.webp",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "assets/img/logo.jpg",
+      "src": "assets/img/logo.webp",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "maskable"
     },
     {
-      "src": "assets/img/logo.jpg",
+      "src": "assets/img/logo.webp",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "maskable"
@@ -43,14 +43,14 @@
       "short_name": "Agendar",
       "description": "Falar pelo WhatsApp para agendar",
       "url": "https://wa.me/551632523233?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20exame.",
-      "icons": [{ "src": "assets/img/logo.jpg", "sizes": "192x192" }]
+      "icons": [{ "src": "assets/img/logo.webp", "sizes": "192x192" }]
     },
     {
       "name": "Área do Dentista",
       "short_name": "Dentista",
       "description": "Acesso para profissionais",
       "url": "/area-dentista/index.html",
-      "icons": [{ "src": "assets/img/logo.jpg", "sizes": "192x192" }]
+      "icons": [{ "src": "assets/img/logo.webp", "sizes": "192x192" }]
     }
   ]
 }
