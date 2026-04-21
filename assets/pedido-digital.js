@@ -18,7 +18,7 @@
     // Enquanto DRIVE_UPLOAD_URL estiver vazio, o fluxo antigo (baixa local + anexo manual) é mantido.
     const DRIVE_UPLOAD_URL = 'https://script.google.com/macros/s/AKfycbyf5rPY2eviT3JQTabHxauYzzpE0xm0ZaWqkA687zpWMKAe9yYFvCmVG125OD-JuCsN/exec';
     const DRIVE_UPLOAD_TOKEN = '';
-    const DRIVE_UPLOAD_TIMEOUT_MS = 15000;
+    const DRIVE_UPLOAD_TIMEOUT_MS = 45000;
     const DRIVE_SUBFOLDER_PREFIX = 'radix';
 
     /* ---------- Odontograma: definição dos dentes ---------- */
@@ -546,6 +546,48 @@
             fb.textContent = msg;
         }
 
+        function mostrarCarregando(msg) {
+            fb.className = 'pd-feedback pd-feedback--loading';
+            fb.innerHTML = '';
+            const wrap = document.createElement('div');
+            wrap.style.display = 'flex';
+            wrap.style.alignItems = 'center';
+            wrap.style.gap = '14px';
+            const sp = document.createElement('span');
+            sp.className = 'pd-spinner';
+            const txt = document.createElement('div');
+            txt.innerHTML = `<strong style="display:block;margin-bottom:2px">Enviando seu pedido…</strong><span style="opacity:.85">${msg}</span>`;
+            wrap.appendChild(sp);
+            wrap.appendChild(txt);
+            fb.appendChild(wrap);
+        }
+
+        function mostrarFallback(doc, filename, waUrl, err) {
+            fb.className = 'pd-feedback pd-feedback--err';
+            fb.innerHTML = '';
+            const msg = document.createElement('div');
+            msg.style.marginBottom = '10px';
+            msg.textContent = 'Não foi possível subir o PDF no servidor. Baixe o arquivo e envie manualmente pelo WhatsApp.';
+            const row = document.createElement('div');
+            row.style.display = 'flex';
+            row.style.flexWrap = 'wrap';
+            row.style.gap = '10px';
+            const bDl = document.createElement('button');
+            bDl.type = 'button';
+            bDl.className = 'btn btn-ghost';
+            bDl.textContent = 'Baixar PDF';
+            bDl.addEventListener('click', () => doc.save(filename));
+            const bWa = document.createElement('a');
+            bWa.className = 'btn btn-primary';
+            bWa.href = waUrl;
+            bWa.textContent = 'Abrir WhatsApp';
+            row.appendChild(bDl);
+            row.appendChild(bWa);
+            fb.appendChild(msg);
+            fb.appendChild(row);
+            if (err) console.warn('Detalhes do erro:', err);
+        }
+
         // Pré-visualização
         btnPrev.addEventListener('click', async () => {
             await loadLogo();
@@ -584,29 +626,34 @@
             const btnLabelOriginal = btnEnv.textContent;
             btnEnv.disabled = true;
             btnEnv.textContent = 'Enviando...';
+            mostrarCarregando('Enviando pedido para o servidor… isso pode levar alguns segundos.');
 
             let pdfUrl = null;
+            let uploadError = null;
             if (DRIVE_UPLOAD_URL) {
                 try {
                     pdfUrl = await uploadPdfToDrive(pdfBlob, filename);
                 } catch (err) {
-                    console.warn('Upload para o Drive falhou, usando fluxo manual:', err);
+                    uploadError = err;
+                    console.warn('Upload para o Drive falhou:', err);
                 }
             }
 
-            if (!pdfUrl) doc.save(filename);
             const texto = resumoWA(d, pdfUrl);
             const waUrl = `https://wa.me/${WA_NUM}?text=${encodeURIComponent(texto)}`;
 
             if (pdfUrl) {
                 showFeedback('PDF enviado. Abrindo WhatsApp...', true);
-            } else {
-                showFeedback('PDF baixado. Abrindo WhatsApp para anexo manual...', true);
+                // Pequeno delay para o feedback aparecer antes da navegação.
+                setTimeout(() => { window.location.href = waUrl; }, 150);
+                return;
             }
 
-            // Navega a aba atual: não é bloqueado por popup blocker.
-            // No mobile o wa.me abre direto o app do WhatsApp.
-            window.location.href = waUrl;
+            // Falha no upload: não disparamos doc.save automático (no mobile
+            // abre o PDF e rouba o foco). Mostramos botões manuais.
+            btnEnv.disabled = false;
+            btnEnv.textContent = btnLabelOriginal;
+            mostrarFallback(doc, filename, waUrl, uploadError);
         });
     });
 })();
