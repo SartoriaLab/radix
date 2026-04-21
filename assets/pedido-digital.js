@@ -548,21 +548,11 @@
             }
         });
 
-        // Envio em 2 etapas no mobile: 1) upload, 2) clique real abre WhatsApp.
-        // O segundo clique é um gesto direto do usuário → nunca é bloqueado.
+        // Envio em 1 clique: gera PDF, sobe no Drive, navega a aba atual para
+        // o wa.me. Navegação de location não é bloqueada por popup blocker.
+        // No mobile o wa.me abre direto o app do WhatsApp.
         btnEnv.addEventListener('click', async () => {
             if (btnEnv.disabled) return;
-
-            // Etapa 2: botão já está no modo "Abrir WhatsApp"
-            if (btnEnv.dataset.waUrl) {
-                const url = btnEnv.dataset.waUrl;
-                delete btnEnv.dataset.waUrl;
-                btnEnv.textContent = 'Gerar e enviar';
-                validar();
-                window.open(url, '_blank');
-                return;
-            }
-
             await loadLogo();
             const d = collect(stateIntra, stateTomo);
             let doc;
@@ -594,17 +584,15 @@
             const texto = resumoWA(d, pdfUrl);
             const waUrl = `https://wa.me/${WA_NUM}?text=${encodeURIComponent(texto)}`;
 
-            // Em vez de window.open (bloqueado no mobile após operação async),
-            // transformamos o próprio botão num link direto para o WhatsApp.
-            // O próximo clique é um gesto direto do usuário → nunca é bloqueado.
-            btnEnv.disabled = false;
-            btnEnv.textContent = pdfUrl ? 'Abrir WhatsApp' : 'Abrir WhatsApp e anexar PDF';
-            btnEnv.dataset.waUrl = waUrl;
             if (pdfUrl) {
-                showFeedback('Pronto! Toque em "Abrir WhatsApp" para enviar a mensagem com o link do PDF.', true);
+                showFeedback('PDF enviado. Abrindo WhatsApp...', true);
             } else {
-                showFeedback('PDF baixado. Toque em "Abrir WhatsApp" e anexe o arquivo na conversa.', true);
+                showFeedback('PDF baixado. Abrindo WhatsApp para anexo manual...', true);
             }
+
+            // Navega a aba atual: não é bloqueado por popup blocker.
+            // No mobile o wa.me abre direto o app do WhatsApp.
+            window.location.href = waUrl;
         });
     });
 })();
