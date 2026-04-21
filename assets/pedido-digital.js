@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    const WA_NUM = '5516996458804';
+    const WA_NUM = '551632523233';
     const CLINICA = {
         nome: 'Rádix — Clínica de Radiologia Odontológica',
         endereco: 'Praça Dr. José Furiati, 184 — Centro — Taquaritinga/SP',
